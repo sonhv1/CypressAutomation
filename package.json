@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
-    "runtests": "npm run test --"
+    "hihi": "npm run test --",
+    "cypress": "npx open cypress"
   },
   "keywords": [
     "sonhv"
