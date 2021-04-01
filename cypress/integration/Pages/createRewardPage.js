@@ -25,6 +25,7 @@ var loyalty = '[data-key="loyalties"] > a'
 var rules = '[data-key="transaction_rules"] > a'
 var merchants = '[data-key="merchants"] > a'
 var layoutContent = '.ant-layout-content'
+var bulkActionBtn = '[data-key="bulk_actions"] > a'
 var dashboardUrl = 'https://dashboard.perxtech.io/dashboard/p/business_intelligence/overview'
 var reportUrl = 'https://dashboard.perxtech.io/dashboard/p/reports'
 var inventoryUrl = 'https://dashboard.perxtech.io/dashboard/p/inventories'
@@ -38,8 +39,18 @@ var date = 'ant-calendar-date'
 var selectDate = '[style="margin-bottom: 10px;"] > .ant-col > .ant-form-item-control > .ant-form-item-children > .sc-fzoYkl > .sc-fzomME > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .anticon > svg'
 var calendarClear = '//i[@class="anticon anticon-close-circle ant-calendar-picker-clear"]';
 var cc = '//*[@id="root"]/section/section/main/span/div/div[3]/form/div[1]/div/div/div/div[4]/div[2]/div[1]/div[2]/div/span/div/div[1]/div/span[1]/div/i[2]'
-var launchBtn = 'cy.get("[type="submit"]")'
+var launchBtn = 'button[type="submit"]'
 var editBtn = '//button[@class="ant-btn ant-btn-primary ant-btn-lg"]'
+var rewardName = '[data-testid=reward_name] > .sc-fzomME'
+var validPeriod = '.sc-fznKkj > :nth-child(1) > :nth-child(8) > .sc-fzomME > :nth-child(1) > .Label-sc-3w3uon-0'
+var privateRadioBtn = 'input[value="private"]'
+var brandField = ':nth-child(7) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .ant-select-show-arrow > .ant-select-selection > .ant-select-selection__rendered > .ant-select-selection__placeholder'
+var tagsField = ':nth-child(8) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .ant-select-show-arrow > .ant-select-selection > .ant-select-selection__rendered > .ant-select-selection__placeholder'
+var categoriesField = ':nth-child(9) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .css-kxm09t-container > .css-g0vauy-control > .css-1hwfws3'
+var labelsField = ':nth-child(10) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .css-kxm09t-container > .css-g0vauy-control > .css-1hwfws3'
+var uploadBtn = 'button[class="ant-btn ant-btn-primary ant-btn-lg"]'
+
+
 
 
 
@@ -133,7 +144,7 @@ class createRewardPage {
     //    if($el.length > 0) {
     //        cy.find("March 17, 2021").click()
     //    }
-    cy.get('body').then(($body) => {
+        cy.get('body').then(($body) => {
         if ($body.find(startDateField).length > 0) {
             cy.contains('15').click()
         }
@@ -145,11 +156,37 @@ class createRewardPage {
                 cy.contains('18').click()
             }
         })
+
         this.clickToNext()
-        cy.get('span').contains('Launch').click()
-       
+
+        if(this.verifyMandatoryField()) () => {
+            cy.get(launchBtn).click()
+        }
+
     }
+
+    verifyMandatoryField() {
+        cy.get(rewardName).should(($div) => {
+            const text = $div.text()
+            expect(text).not.to.null
+        })
+
+        cy.get(validPeriod).should(($div) => {
+            const text = $div.text()
+            expect(text).not.to.null
+        })
+    }
+
+    checkPrivateType() {
+        cy.get(privateRadioBtn).should('not.be.checked').click()
+        cy.get(brandField).should('not.be.visible').should('not.be.enabled')
+        cy.get(tagsField).should('not.be.visible').should('not.be.enabled')
+        cy.get(categoriesField).should('not.be.visible').should('not.be.enabled')
+        cy.get(labelsField).should('not.be.visible').should('not.be.enabled')
+    }
+
 }
+
 
 
 
