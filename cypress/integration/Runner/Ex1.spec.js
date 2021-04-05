@@ -71,14 +71,14 @@ beforeEach(() => {
 //         crp.selectValidPeriod()
 //     })
 // })
-
+ 
 describe('Test Upload a file in bulk list', () => {
-    // it('Test ability to upload', ()=> {
-    //     const login = new loginPage()
-    //     const dbp = new dashboardPage()
-    //     login.login('admin@dashboard.com', 'admin1234')
-    //     dbp.checkAbilityToUpload()
-    // })
+    it('Test ability to upload', ()=> {
+        const login = new loginPage()
+        const dbp = new dashboardPage()
+        login.login('admin@dashboard.com', 'admin1234')
+        dbp.checkAbilityToUpload()
+    })
 
     it('Test verify format of file', ()=> {
         const login = new loginPage()
@@ -86,6 +86,7 @@ describe('Test Upload a file in bulk list', () => {
         login.login('admin@dashboard.com', 'admin1234')
         dbp.checkAbilityToUpload()
         dbp.checkFileFormat()
+        console.log('sdfsd');
     })
 
 })
