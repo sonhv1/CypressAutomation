@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types="Cypress" />
 
 //import dashboardPage from "../Pages/dashboardPage";
 import loginPage from "../Pages/loginPage";
@@ -30,7 +30,6 @@ describe('Test Creating a reward', () => {
 
     it('TestLogin', ()=> {
         const login = new loginPage()
-        //login.visit()
         const crp = new createRewardPage()
         login.login('reward_admin@dashboard.com', 'reward_admin');
         crp.checkTitle('Perx | Rewards')
@@ -46,7 +45,6 @@ describe('Test Creating a reward', () => {
 
     it('testCreateNewReward', () => {
         const login = new loginPage()
-        //login.visit()
         const crp = new createRewardPage()
         login.login('reward_admin@dashboard.com', 'reward_admin')
         crp.createReward()
@@ -54,7 +52,6 @@ describe('Test Creating a reward', () => {
 
     it('TestAccessRole', ()=> {
         const login = new loginPage()
-        //login.visit()
         const crp = new createRewardPage()
         login.login('reward_admin@dashboard.com', 'reward_admin')
     })

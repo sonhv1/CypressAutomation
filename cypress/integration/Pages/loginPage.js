@@ -13,9 +13,9 @@ class loginPage {
 
     // Function login with parameters user and pass
     login(user, pass) {
-        cy.get(email).type(user)
-        cy.get(password).type(pass)
-        cy.get(loginBtn).click()
+        cy.get(this.locators.email).type(user)
+        cy.get(this.locators.password).type(pass)
+        cy.get(this.locators.loginBtn).click()
         return this
     }
 }
