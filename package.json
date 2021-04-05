@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node_modules\\.bin\\cypress run",
-    "hihi": "npm run test --",
-    "cypress": "npx open cypress"
+    "cypress": "npx open cypress",
+    "open": "cypress open"
   },
   "keywords": [
     "sonhv"
@@ -18,7 +18,5 @@
     "cypress-file-upload": "^5.0.3",
     "cypress-xpath": "^1.6.2"
   },
-  "dependencies": {
-    "@types/lodash": "^4.14.168"
-  }
+  "dependencies": {}
 }

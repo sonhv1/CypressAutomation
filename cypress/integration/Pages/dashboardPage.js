@@ -3,43 +3,41 @@
 // import { indexOf } from "cypress/types/lodash"
 // import _ from "lodash"
 
-
-// Locator
-var bulkActionBtn = '[data-key="bulk_actions"] > a'
-var uploadBtn = '.sc-AxhUy > div > .ant-btn'
-var uploadField = '.ant-upload-drag-icon > .anticon > svg'
-
-
-
 class dashboardPage {
-    checkTitle(title) {
-        cy.title().should('eq', title)
-        return this
-    }
+  constructor() {
+    this.locators = {
+      bulkActionBtn: '[data-key="bulk_actions"] > a',
+      uploadBtn: ".sc-AxhUy > div > .ant-btn",
+      uploadField: ".ant-upload-drag-icon > .anticon > svg"
+    };
+  }
+  checkTitle(title) {
+    cy.title().should("eq", title);
+    return this;
+  }
 
-    checkAbilityToUpload() {
-    
-        if(cy.get(bulkActionBtn).should('exist').click().then($button => {
-            cy.get(uploadBtn).should('exist').should('be.enabled').click()
+  checkAbilityToUpload() {
+    if (
+      cy
+        .get(this.locators.bulkActionBtn)
+        .should("exist")
+        .click()
+        .then(($button) => {
+          cy.get(this.locators.uploadBtn).should("exist").should("be.enabled").click();
         })
-        )
-        return this
-    }
+    )
+      return this;
+  }
 
-    checkFileFormat() {
-        const path = 'C:/Users/SonHV3/Documents/data.txt'
-        //var filePath
-        //var path = filePath?.slice('.') || ''
-        //cy.fixture(path)
-        cy.get(uploadField).trigger('dragenter')
-        cy.dropFile(path)
+  checkFileFormat() {
+    const path = "C:/Users/SonHV3/Documents/data.txt";
+    //var filePath
+    //var path = filePath?.slice('.') || ''
+    //cy.fixture(path)
+    cy.get(this.locators.uploadField).trigger("dragenter");
 
-        return this
-    }
-
-    
-
-    
+    return this;
+  }
 }
 
-export default dashboardPage
+export default dashboardPage;
