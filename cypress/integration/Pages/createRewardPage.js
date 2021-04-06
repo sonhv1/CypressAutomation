@@ -54,7 +54,7 @@ var uploadBtn = 'button[class="ant-btn ant-btn-primary ant-btn-lg"]'
 
 
 
-class createRewardPage { 
+class CreateRewardPage { 
     //open url function
     visit(url) {
         cy.get(url)

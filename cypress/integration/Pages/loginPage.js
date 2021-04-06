@@ -1,5 +1,11 @@
 /// <reference types = "Cypress" />
 
+before(() => {
+    cy.fixture('example').then( function(data) {
+        this.data = data
+    })
+})
+
 class loginPage {
     constructor() {
         this.locators = {
@@ -7,17 +13,16 @@ class loginPage {
             password:  '#password',
             loginBtn:  '.ant-btn'
         }
-
-        
     }
 
     // Function login with parameters user and pass
-    login(user, pass) {
-        cy.get(this.locators.email).type(user)
-        cy.get(this.locators.password).type(pass)
+    login() {
+        cy.get(this.locators.email).type(this.data.email)
+        cy.get(this.locators.password).type(this.data.password)
         cy.get(this.locators.loginBtn).click()
         return this
     }
 }
 
     export default loginPage;
+    

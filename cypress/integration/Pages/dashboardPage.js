@@ -3,7 +3,7 @@
 // import { indexOf } from "cypress/types/lodash"
 // import _ from "lodash"
 
-class dashboardPage {
+class DashboardPage {
   constructor() {
     this.locators = {
       bulkActionBtn: '[data-key="bulk_actions"] > a',
@@ -40,4 +40,4 @@ class dashboardPage {
   }
 }
 
-export default dashboardPage;
+export default DashboardPage;
