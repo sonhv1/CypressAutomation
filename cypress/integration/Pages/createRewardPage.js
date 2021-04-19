@@ -101,7 +101,7 @@ class CreateRewardPage {
     verifyUrl() {
     for(var value in url) {
         cy.visit(`${originUrl}${url[value]}`)
-        cy.get(layoutContent).should('be.visible').contains('403 Forbidden')
+        expect(cy.get(layoutContent)).should('be.visible').contains('403 Forbidden')
     }
       return this
 
