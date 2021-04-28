@@ -53,7 +53,7 @@ describe("Test authorization of user roles and groups", () => {
     rewardPage = homePage.openRewardPage();
     rewardPage.verifyIncludeUrl(rewardUrl).clickCreateNewButton()
     .verifyIncludeUrl(createNewRewardUrl)
-    verify
+
   })
 });
 
