@@ -10,7 +10,7 @@ beforeEach(() => {
   cy.visit("https://www.perxtech.io/dashboard");
 });
 
-describe("Test authorization of user roles and groups", () => {
+describe("Creating a reward", () => {
   const loginPage = new LoginPage();
 
   //--------------------------------------------------------------------------------------
@@ -36,62 +36,21 @@ describe("Test authorization of user roles and groups", () => {
   //   rewardPage.verifyCreateNewRewardUrl();
   // });
 
-  it("A reward validity period should have both start and end dates", () => {
+  // it("A reward validity period should have both start and end dates", () => {
+  //   const homePage = loginPage.login();
+  //   const rewardPage = homePage.openRewardPage();
+  //   rewardPage.verifyEditRewardUrl
+  //   rewardPage.clickCreateNewButton();
+  //   rewardPage.verifyCreateNewRewardUrl()
+  //   rewardPage.verifyStartDate();
+  //   rewardPage.verifyEndDate();
+  // });
+
+  it("A successful submission only happens when the payload contains all mandatory information", ()=> {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
-    rewardPage.verifyEditRewardUrl
-    rewardPage.clickCreateNewButton();
-    rewardPage.verifyCreateNewRewardUrl()
-    rewardPage.verifyStartDate();
-    rewardPage.verifyEndDate();
-  });
+    rewardPage.clickCreateNewButton().inputRewardName();
+    rewardPage.clickSelectEndDate();
+    rewardPage.chooseDate("April 29, 2021");
+  })
 });
-
-// describe("Test Creating a reward", () => {
-//   it("testCreateNewReward", () => {
-//     const login = new LoginPage();
-//     const crp = new CreateRewardPage();
-//     login.login();
-//     crp.createReward();
-//   });
-
-//   it("TestAccessRole", () => {
-//     const login = new LoginPage();
-//     const crp = new CreateRewardPage();
-//     login.login();
-//   });
-
-//   it("Test Reward form", () => {
-//     const login = new LoginPage();
-//     const crp = new CreateRewardPage();
-//     login.login();
-//     crp.createReward();
-//     crp.inputInfo("Reward1");
-//     crp.checkPrivateType();
-//     crp.clickToNext();
-//     crp.checkValidPeriod();
-//     crp.selectValidPeriod();
-//   });
-// });
-
-// describe("Test Upload a file in bulk list", () => {
-//   it("Test ability to upload", () => {
-//     const login = new LoginPage();
-//     const dbp = new dashboardPage();
-//     login.login("admin@dashboard.com", "admin1234");
-//     dbp.checkAbilityToUpload();
-//   });
-
-//   it("Test verify format of file", () => {
-//     const login = new LoginPage();
-//     const dbp = new dashboardPage();
-//     login.login("admin@dashboard.com", "admin1234");
-//     dbp.checkAbilityToUpload();
-//     dbp.checkFileFormat();
-//   });
-// });
-
-// // async function test() {
-// //     await driver.build()
-// //     await
-// // }

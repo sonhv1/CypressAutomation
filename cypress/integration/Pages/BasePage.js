@@ -1,5 +1,5 @@
 before(() => {
-  cy.fixture('data').then(function (data) {
+  cy.fixture("data").then(function (data) {
     this.data = data;
   });
 });
@@ -10,7 +10,7 @@ class BasePage {
   }
 
   sendKeyLocator(elementLocator, key) {
-    cy.get(elementLocator).type(key);
+    cy.get(elementLocator).type(key, { force: true });
   }
 
   uploadFile(elementLocator, fileToUpload) {
