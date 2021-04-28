@@ -1,12 +1,8 @@
 /// <reference types = "Cypress" />
+import BasePage from './BasePage';
+import DashboardPage from './dashboardPage';
 
-before(() => {
-  cy.fixture("example").then(function (data) {
-    this.data = data;
-  });
-});
-
-class LoginPage {
+class LoginPage extends BasePage{
   constructor() {
     this.locators = {
       email: "#email",
@@ -15,13 +11,25 @@ class LoginPage {
     };
   }
 
-  // Function login with parameters user and pass
   login() {
-    cy.get(this.locators.email).type(this.data.email);
-    cy.get(this.locators.password).type(this.data.password);
-    cy.get(this.locators.loginBtn).click();
+    this.sendKeyLocator(email,this.data.email);
+    this.sendKeyLocator(password, this.data.password);
+    this.clickLoginButton();
     return this;
   }
+
+  loginAsAdmin() {
+    this.sendKeyLocator(email,this.data.adminEmail);
+    this.sendKeyLocator(password, this.data.adminPassword);
+    this.clickLoginButton();
+    return this;
+  }
+
+  clickLoginButton() {
+    this.clickElement(this.locators.loginBtn);
+    return new DashboardPage()
+  }
+
 }
 
 export default LoginPage;

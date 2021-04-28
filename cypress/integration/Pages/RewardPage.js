@@ -1,13 +1,14 @@
 /// <reference types = "Cypress" />
+import BasePage from './BasePage';
 
-var url = {
-    dashboardUrl: "business_intelligence/overview",
-    reportUrl: "reports",
-    inventoryUrl: "inventories",
-    catalogueUrl: "catalogues",
-    campaignUrl: "campaigns",
-    loyaltyUrl: "loyalty/list"
-}
+// var url = {
+//     dashboardUrl: "business_intelligence/overview",
+//     reportUrl: "reports",
+//     inventoryUrl: "inventories",
+//     catalogueUrl: "catalogues",
+//     campaignUrl: "campaigns",
+//     loyaltyUrl: "loyalty/list"
+// }
 
 // Locator 
 var originUrl = "https://dashboard.perxtech.io/dashboard/p/"
@@ -54,36 +55,14 @@ var uploadBtn = 'button[class="ant-btn ant-btn-primary ant-btn-lg"]'
 
 
 
-class CreateRewardPage { 
-    //open url function
-    visit(url) {
-        cy.get(url)
-        return this
+class RewardPage extends BasePage{ 
+    constructor() {
+        super()
+        this.locators = {
+            createNewRewardButton: 'button[type=button]',
+            rewardUrl: "/dashboard/p/rewards/list"
+        }
     }
-   
-    // check title function
-    checkTitle(title) {
-        cy.title().should('eq', title)
-        return this
-    }
-
-    // check account can create a new reward
-    checkRole() {
-        cy.get(createNewRewardButton).should('be.visible').should('be.enabled')
-        return this
-    }
-
-    // create new reward function
-    createReward() {
-        const crp = new createRewardPage()
-        const createNewBtn = cy.get('button[type=button]')
-        createNewBtn.click()
-        return this
-    }
-
-    // checkAccessRole() {
-    //     cy.get
-    // }
 
     checkAuthorization() {
         cy.get(dashboards).should('not.exist')
@@ -98,91 +77,96 @@ class CreateRewardPage {
     }
 
     //verify url
-    verifyUrl() {
-    for(var value in url) {
-        cy.visit(`${originUrl}${url[value]}`)
-        expect(cy.get(layoutContent)).should('be.visible').contains('403 Forbidden')
-    }
-      return this
+    // verifyUrl() {
+    // for(var value in url) {
+    //     cy.visit(`${originUrl}${url[value]}`)
+    //     expect(cy.get(layoutContent)).should('be.visible').contains('403 Forbidden')
+    // }
+    //   return this
 
-    }
+    // }
 
     // input info of course
-    inputInfo(name) {
-        cy.get(nameField).type(name)
-    }
+    // inputInfo(name) {
+    //     cy.get(nameField).type(name)
+    // }
 
-    // click to Next button
-    clickToNext() {
-        cy.get(nextBtn).click()
-    }
+    // // click to Next button
+    // clickToNext() {
+    //     cy.get(nextBtn).click()
+    // }
 
-    // check valid period includes start date and end date
-    checkValidPeriod() {
-        cy.get(startDateField).should('be.visible').should('be.enabled')
-        cy.get(endDateField).should('be.visible').should('be.enabled')
-    }
+    // // check valid period includes start date and end date
+    // checkValidPeriod() {
+    //     cy.get(startDateField).should('be.visible').should('be.enabled')
+    //     cy.get(endDateField).should('be.visible').should('be.enabled')
+    // }
 
 
-    selectValidPeriod() {
+    // selectValidPeriod() {
     
-    //    // cy.get(startDateField).clear({force: true})
-    //     // cy.get(endDateField).title('eq', 'March 29, 2021').click()
-    //     //cy.get(endDateField).contains('15').click()
+    // //    // cy.get(startDateField).clear({force: true})
+    // //     // cy.get(endDateField).title('eq', 'March 29, 2021').click()
+    // //     //cy.get(endDateField).contains('15').click()
+    // //     this.clickToNext()
+    //     //cy.get(startDateField).click().type(Cypress.moment().format('MMM DD, YYYY'))
+    //     // cy.get(startDateField).each(randomElement => {
+    //     //     cy.wrap(randomElement).click({force: true});
+    //     // });
+
+    //     // cy.get(endDateField).each(randomElement => {
+    //     //     cy.wrap(randomElement).click({force: true});
+    //     // });
+    //     //cy.get(startDateField).click().should('have.value', Cypress.moment().format('DD MM YYYY'))
+    //    cy.get(startDateField).click()
+    // //    const $el = await cy.find(calendarBody) 
+    // //    if($el.length > 0) {
+    // //        cy.find("March 17, 2021").click()
+    // //    }
+    //     cy.get('body').then(($body) => {
+    //     if ($body.find(startDateField).length > 0) {
+    //         cy.contains('15').click()
+    //     }
+    //     })
+
+    //     cy.get(endDateField).click()
+    //     cy.get('body').then(($body) => {
+    //         if ($body.find(startDateField).length > 0) {
+    //             cy.contains('18').click()
+    //         }
+    //     })
+
     //     this.clickToNext()
-        //cy.get(startDateField).click().type(Cypress.moment().format('MMM DD, YYYY'))
-        // cy.get(startDateField).each(randomElement => {
-        //     cy.wrap(randomElement).click({force: true});
-        // });
 
-        // cy.get(endDateField).each(randomElement => {
-        //     cy.wrap(randomElement).click({force: true});
-        // });
-        //cy.get(startDateField).click().should('have.value', Cypress.moment().format('DD MM YYYY'))
-       cy.get(startDateField).click()
-    //    const $el = await cy.find(calendarBody) 
-    //    if($el.length > 0) {
-    //        cy.find("March 17, 2021").click()
-    //    }
-        cy.get('body').then(($body) => {
-        if ($body.find(startDateField).length > 0) {
-            cy.contains('15').click()
-        }
-        })
+    //     if(this.verifyMandatoryField()) () => {
+    //         cy.get(launchBtn).click()
+    //     }
 
-        cy.get(endDateField).click()
-        cy.get('body').then(($body) => {
-            if ($body.find(startDateField).length > 0) {
-                cy.contains('18').click()
-            }
-        })
+    // }
 
-        this.clickToNext()
+    // verifyMandatoryField() {
+    //     cy.get(rewardName).should(($div) => {
+    //         const text = $div.text()
+    //         expect(text).not.to.null
+    //     })
 
-        if(this.verifyMandatoryField()) () => {
-            cy.get(launchBtn).click()
-        }
+    //     cy.get(validPeriod).should(($div) => {
+    //         const text = $div.text()
+    //         expect(text).not.to.null
+    //     })
+    // }
 
-    }
+    // checkPrivateType() {
+    //     cy.get(privateRadioBtn).should('not.be.checked').click()
+    //     cy.get(brandField).should('not.be.visible').should('not.be.enabled')
+    //     cy.get(tagsField).should('not.be.visible').should('not.be.enabled')
+    //     cy.get(categoriesField).should('not.be.visible').should('not.be.enabled')
+    //     cy.get(labelsField).should('not.be.visible').should('not.be.enabled')
+    // }
 
-    verifyMandatoryField() {
-        cy.get(rewardName).should(($div) => {
-            const text = $div.text()
-            expect(text).not.to.null
-        })
-
-        cy.get(validPeriod).should(($div) => {
-            const text = $div.text()
-            expect(text).not.to.null
-        })
-    }
-
-    checkPrivateType() {
-        cy.get(privateRadioBtn).should('not.be.checked').click()
-        cy.get(brandField).should('not.be.visible').should('not.be.enabled')
-        cy.get(tagsField).should('not.be.visible').should('not.be.enabled')
-        cy.get(categoriesField).should('not.be.visible').should('not.be.enabled')
-        cy.get(labelsField).should('not.be.visible').should('not.be.enabled')
+    clickCreateNewButton() {
+        this.clickElement(this.locators.createNewRewardButton)
+        return this
     }
 
 }
@@ -190,4 +174,4 @@ class CreateRewardPage {
 
 
 
-export default createRewardPage
+export default RewardPage
