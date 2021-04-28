@@ -2,8 +2,6 @@
 
 //import dashboardPage from "../Pages/dashboardPage";
 import LoginPage from "../Pages/LoginPage";
-import CreateRewardPage from "../Pages/CreateRewardPage";
-import DashboardPage from "../Pages/DashboardPage";
 import HomePage from "../Pages/HomePage";
 import RewardPage from "../Pages/RewardPage";
 import { verify } from "cypress/types/sinon";
@@ -45,16 +43,20 @@ describe("Test authorization of user roles and groups", () => {
   it("Clicking Create New button should lead to reward creation page", () => {
     homePage = loginPage.login();
     rewardPage = homePage.openRewardPage();
-    rewardPage.verifyIncludeUrl(rewardUrl).clickCreateNewButton().verifyIncludeUrl(createNewRewardUrl)
+    rewardPage
+      .verifyIncludeUrl(rewardUrl)
+      .clickCreateNewButton()
+      .verifyIncludeUrl(createNewRewardUrl);
   });
 
-  it("A reward validity period should have both start and end dates", ()=> {
+  it("A reward validity period should have both start and end dates", () => {
     homePage = loginPage.login();
     rewardPage = homePage.openRewardPage();
-    rewardPage.verifyIncludeUrl(rewardUrl).clickCreateNewButton()
-    .verifyIncludeUrl(createNewRewardUrl)
-
-  })
+    rewardPage
+      .verifyIncludeUrl(rewardUrl)
+      .clickCreateNewButton()
+      .verifyIncludeUrl(createNewRewardUrl);
+  });
 });
 
 // describe("Test Creating a reward", () => {

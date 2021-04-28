@@ -1,8 +1,8 @@
 /// <reference types = "Cypress" />
-import BasePage from './BasePage';
-import DashboardPage from './dashboardPage';
+import BasePage from "./BasePage";
+import DashboardPage from "./dashboardPage";
 
-class LoginPage extends BasePage{
+class LoginPage extends BasePage {
   constructor() {
     this.locators = {
       email: "#email",
@@ -12,14 +12,14 @@ class LoginPage extends BasePage{
   }
 
   login() {
-    this.sendKeyLocator(email,this.data.email);
+    this.sendKeyLocator(email, this.data.email);
     this.sendKeyLocator(password, this.data.password);
     this.clickLoginButton();
     return this;
   }
 
   loginAsAdmin() {
-    this.sendKeyLocator(email,this.data.adminEmail);
+    this.sendKeyLocator(email, this.data.adminEmail);
     this.sendKeyLocator(password, this.data.adminPassword);
     this.clickLoginButton();
     return this;
@@ -27,9 +27,8 @@ class LoginPage extends BasePage{
 
   clickLoginButton() {
     this.clickElement(this.locators.loginBtn);
-    return new DashboardPage()
+    return new DashboardPage();
   }
-
 }
 
 export default LoginPage;
