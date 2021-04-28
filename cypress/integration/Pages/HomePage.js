@@ -1,4 +1,5 @@
 import BasePage from "./BasePage";
+import RewardPage from "./RewardPage";
 
 class HomePage extends BasePage {
   constructor() {
@@ -14,8 +15,8 @@ class HomePage extends BasePage {
   }
 
   openRewardPage() {
-    this.clickElement();
-    return this;
+    this.clickElement(this.locators.rewardMenu);
+    return new RewardPage;
   }
 
   openLoyaltyMenu() {
@@ -32,10 +33,6 @@ class HomePage extends BasePage {
       this.clickElement(bulkActionMenu)
       return this
   }
-
-
-
-
 
 }
 

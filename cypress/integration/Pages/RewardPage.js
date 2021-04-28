@@ -11,28 +11,14 @@ import BasePage from './BasePage';
 // }
 
 // Locator 
-var originUrl = "https://dashboard.perxtech.io/dashboard/p/"
+
 var nameField = ':nth-child(2) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > div > .ant-input'
 var nextBtn = '.BottomBar__Content-sc-1dqvwjb-1 > div > .ant-btn-primary'
 var createNewRewardButton = 'button[type=button]'
 var dashboards = '[data-key="business_intelligence"] > a'
-var reports = '[data-key="reports"] > a'
-var rewards = '[data-key="rewards"] > a'
-var inventory = '[data-key="inventories"] > a'
-var catalogues = '[data-key="catalogs"] > a'
-var campaigns = '[data-key="campaigns"] > a'
-var campaignsBeta = '[data-key="new_campaigns"] > a'
-var loyalty = '[data-key="loyalties"] > a'
 var rules = '[data-key="transaction_rules"] > a'
-var merchants = '[data-key="merchants"] > a'
 var layoutContent = '.ant-layout-content'
-var bulkActionBtn = '[data-key="bulk_actions"] > a'
 var dashboardUrl = 'https://dashboard.perxtech.io/dashboard/p/business_intelligence/overview'
-var reportUrl = 'https://dashboard.perxtech.io/dashboard/p/reports'
-var inventoryUrl = 'https://dashboard.perxtech.io/dashboard/p/inventories'
-var catalogueUrl = 'https://dashboard.perxtech.io/dashboard/p/catalogues'
-var campaignUrl = 'https://dashboard.perxtech.io/dashboard/p/campaigns'
-var loyaltyUrl = 'https://dashboard.perxtech.io/dashboard/p/loyalty/list'
 var startDateField = '[style="margin-bottom: 10px;"] > .ant-col > .ant-form-item-control > .ant-form-item-children > .sc-fzoYkl > .sc-fzomME > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .ant-calendar-picker-input'
 var endDateField = '[style="margin-bottom: 0px;"] > .ant-col > .ant-form-item-control > .ant-form-item-children > .sc-fzoYkl > .sc-fzomME > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .ant-calendar-picker-input'
 var calendarBody = '//tbody[@class="ant-calendar-tbody"]'
@@ -50,30 +36,15 @@ var tagsField = ':nth-child(8) > .ant-form-item-control-wrapper > .ant-form-item
 var categoriesField = ':nth-child(9) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .css-kxm09t-container > .css-g0vauy-control > .css-1hwfws3'
 var labelsField = ':nth-child(10) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .css-kxm09t-container > .css-g0vauy-control > .css-1hwfws3'
 var uploadBtn = 'button[class="ant-btn ant-btn-primary ant-btn-lg"]'
-
-
-
-
-
 class RewardPage extends BasePage{ 
     constructor() {
         super()
         this.locators = {
             createNewRewardButton: 'button[type=button]',
-            rewardUrl: "/dashboard/p/rewards/list"
+            rewardUrl: "/dashboard/p/rewards/list",
+            createNewRewardUrl: "/dashboard/p/rewards/create",
+            editRewardUrl: "/p/rewards/edit",
         }
-    }
-
-    checkAuthorization() {
-        cy.get(dashboards).should('not.exist')
-        cy.get(reports).should('not.exist')
-        cy.get(inventory).should('not.exist')
-        cy.get(catalogues).should('not.exist')
-        cy.get(campaigns).should('not.exist')
-        cy.get(loyalty).should('not.exist')
-        cy.get(rules).should('not.exist')
-        cy.get(merchants).should('not.exist')
-        return this
     }
 
     //verify url
@@ -166,7 +137,27 @@ class RewardPage extends BasePage{
 
     clickCreateNewButton() {
         this.clickElement(this.locators.createNewRewardButton)
-        return this
+        return new RewardPage();
+    }
+
+    verifyRewardUrl() {
+        this.verifyIncludeUrl(this.locators.rewardUrl)
+    }
+
+    verifyCreateNewRewardUrl() {
+        this.verifyIncludeUrl(this.locators.createNewRewardUrl)
+    }
+
+    verifyEditRewardUrl() {
+        this.verifyIncludeUrl(this.locators.editRewardUrl)
+    }
+
+    verifyStartDate() {
+        this.verifyElementVisibleByString('Start Date')
+    }
+
+    verifyEndDate() {
+        this.verifyElementVisibleByString('End Date')
     }
 
 }
