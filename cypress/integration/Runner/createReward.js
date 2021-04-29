@@ -69,8 +69,20 @@ describe("Creating a reward", () => {
     rewardPage.clickCreateNewButton().inputRewardName("Reward 1");
     rewardPage.clickSelectEndDate();
     rewardPage.verifyEndDateNull('');
-    rewardPage.clickNextButton().clickNextButton();
+    rewardPage.clickNextButton()
+    rewardPage.clickNextButton();
     rewardPage.verifyEndDateErrorMessage('Start date & end date required')
   });
 
+  it("If the reward is of private type: All fields related to catalogues,\
+      labels, brands, tags and categories should disappaer.", () => {
+    const homePage = loginPage.login();
+    const rewardPage = homePage.openRewardPage();
+    rewardPage.clickCreateNewButton().inputRewardName("Reward 1");
+    rewardPage.clickSelectEndDate();
+    rewardPage.chooseDate("April 29, 2021");
+    rewardPage.clickNextButton();
+    rewardPage.clickNextButton();
+    rewardPage.checkPrivateType();
+  });
 });

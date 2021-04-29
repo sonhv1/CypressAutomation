@@ -1,7 +1,7 @@
 beforeEach(() => {
-  cy.fixture("invalid_files_list").then((data) => {
-    this.file_name = data;
-  });
+  // cy.fixture("invalid_files_list").then((data) => {
+  //   this.data = data;
+  // });
 });
 
 class BasePage {

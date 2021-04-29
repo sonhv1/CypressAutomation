@@ -48,28 +48,28 @@ class BulkActionsPage extends BasePage {
         return cy.get('button[disabled][type ="button"]');
     }
 
-    verifyIdFileIncreases() {
-        cy.get(this.locators.firstActionName)
-            .then(($text) => {
-                const pattern = /\d+/i;
-                const textElement = $text.text();
-                let idNumberBeforeUpload = textElement.match(pattern);
-                idNumberBeforeUpload = parseInt(idNumberBeforeUpload[0]);
-                this.clickUploadButton()
-                    .uploadCsvFile()
-                    .clickPopupUploadButton()
-                    .verifyUploadStatus();
-                cy.wait(1000);
-                cy.get(this.locators.firstActionName)
-                    .then(($text2) => {
-                        const textElement2 = $text2.text();
-                        let idNumberAfterUpload = textElement2.match(pattern);
-                        idNumberAfterUpload = parseInt(idNumberAfterUpload[0]);
-                        expect(idNumberAfterUpload).to.eq(idNumberBeforeUpload + 1)
-                    });
+    // verifyIdFileIncreases() {
+    //     cy.get(this.locators.firstActionName)
+    //         .then(($text) => {
+    //             const pattern = /\d+/i;
+    //             const textElement = $text.text();
+    //             let idNumberBeforeUpload = textElement.match(pattern);
+    //             idNumberBeforeUpload = parseInt(idNumberBeforeUpload[0]);
+    //             this.clickUploadButton()
+    //                 .uploadCsvFile()
+    //                 .clickPopupUploadButton()
+    //                 .verifyUploadStatus();
+    //             cy.wait(1000);
+    //             cy.get(this.locators.firstActionName)
+    //                 .then(($text2) => {
+    //                     const textElement2 = $text2.text();
+    //                     let idNumberAfterUpload = textElement2.match(pattern);
+    //                     idNumberAfterUpload = parseInt(idNumberAfterUpload[0]);
+    //                     expect(idNumberAfterUpload).to.eq(idNumberBeforeUpload + 1)
+    //                 });
 
-            });
-    }
+    //         });
+    // }
 
 }
 export default BulkActionsPage;

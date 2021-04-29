@@ -10,21 +10,30 @@ class RewardPage extends BasePage {
       editRewardUrl: "/p/rewards/edit",
       nextButton: ".BottomBar__Content-sc-1dqvwjb-1 > div > .ant-btn-primary",
       nameField: 'input[name="name_en"',
-      selectEndDateLocator:
-        ':nth-child(2) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .common__FlexContainer-jgl043-7 > .ant-col > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .ant-calendar-picker-input',
+      selectEndDateLocator: ':nth-child(2) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .common__FlexContainer-jgl043-7 > .ant-col > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .ant-calendar-picker-input',
       date: 'td[role="gridcell"]',
       endDate: (day) => `td[title = "${day}"]`,
+      privateRadioButton: 'span[class="ant-radio ant-radio-checked"]',
+      brandField: ':nth-child(7) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children \
+      > .ant-select-show-arrow > .ant-select-selection > .ant-select-selection__rendered > .ant-select-selection__placeholder',
+      tagsField: ':nth-child(8) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children \
+      > .ant-select-show-arrow > .ant-select-selection > .ant-select-selection__rendered > .ant-select-selection__placeholder',
+      labelsField: ':nth-child(10) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children\
+       > .css-kxm09t-container > .css-g0vauy-control > .css-1hwfws3',
+       categoriesField: ':nth-child(11) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children \
+       > .ant-select-show-arrow > .ant-select-selection > .ant-select-selection__rendered > .ant-select-selection__placeholder',
     };
     
   }
 
-  // checkPrivateType() {
-  //     cy.get(privateRadioBtn).should('not.be.checked').click()
-  //     cy.get(brandField).should('not.be.visible').should('not.be.enabled')
-  //     cy.get(tagsField).should('not.be.visible').should('not.be.enabled')
-  //     cy.get(categoriesField).should('not.be.visible').should('not.be.enabled')
-  //     cy.get(labelsField).should('not.be.visible').should('not.be.enabled')
-  // }
+  checkPrivateType() {
+      cy.get(this.locators.privateRadioButton).should('not.be.checked').click()
+      cy.get(this.locators.brandField).should('not.be.enabled')
+      cy.get(this.locators.tagsField).should('not.be.enabled')
+      cy.get(this.locators.labelsField).should('not.be.enabled')
+      cy.get(this.locators.categoriesField).should('not.be.enabled')
+      return this
+  }
 
   clickCreateNewButton() {
     this.clickElement(this.locators.createNewRewardButton);

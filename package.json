@@ -7,6 +7,7 @@
     "test": "node_modules\\.bin\\cypress run",
     "cypress": "npx open cypress",
     "open": "cypress open"
+    
   },
   "keywords": [
     "sonhv"
@@ -16,8 +17,14 @@
   "devDependencies": {
     "cypress": "^6.8.0",
     "cypress-file-upload": "^5.0.3",
-    "cypress-xpath": "^1.6.2"
+    "cypress-multi-reporters": "^1.5.0",
+    "cypress-xpath": "^1.6.2",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0"
   },
-  "dependencies": {}
-
+  "dependencies": {
+    "reporter": "dot"
+  }
 }
