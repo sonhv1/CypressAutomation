@@ -13,9 +13,6 @@ class RewardPage extends BasePage {
       selectEndDateLocator:
         ':nth-child(2) > .ant-form-item-control-wrapper > .ant-form-item-control > .ant-form-item-children > .common__FlexContainer-jgl043-7 > .ant-col > [style="display: flex; flex-flow: wrap;"] > .sc-fzqMAW > div > .ant-calendar-picker-input',
       date: 'td[role="gridcell"]',
-      activeWeek: 'tr[class="ant-calendar-active-week"]',
-      nextMonth:
-        'td[class="ant-calendar-cell ant-calendar-next-month-btn-day"]',
       endDate: (day) => `td[title = "${day}"]`,
     };
   }
@@ -117,8 +114,8 @@ class RewardPage extends BasePage {
     this.verifyElementVisibleByString("End Date");
   }
 
-  inputRewardName() {
-    this.sendKeyLocator(this.locators.nameField, "ZXZ");
+  inputRewardName(name) {
+    this.sendKeyLocator(this.locators.nameField, name);
   }
 
   verifyNameErrorMessage() {
@@ -131,6 +128,15 @@ class RewardPage extends BasePage {
 
   chooseDate(date) {
     this.clickElement(this.locators.endDate(date));
+  }
+
+  verifyEndDateNull(string) {
+    cy.get(this.locators.selectEndDateLocator).invoke('val')
+    .then(sometext => expect(sometext).equals(string));
+  }
+
+  verifyEndDateErrorMessage(string) {
+    this.verifyElementVisibleByString(string);
   }
 }
 
