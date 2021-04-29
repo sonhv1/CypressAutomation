@@ -1,6 +1,6 @@
-before(() => {
-  cy.fixture("data").then(function (data) {
-    this.data = data;
+beforeEach(() => {
+  cy.fixture("invalid_files_list").then((data) => {
+    this.file_name = data;
   });
 });
 

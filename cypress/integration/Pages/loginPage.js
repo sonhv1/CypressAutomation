@@ -3,6 +3,7 @@ import BasePage from "./BasePage";
 import HomePage from './HomePage';
 
 
+
 class LoginPage extends BasePage {
   constructor() {
     super();
@@ -28,7 +29,7 @@ class LoginPage extends BasePage {
     this.sendKeyLocator(this.locators.emailField, this.locators.adminEmail);
     this.sendKeyLocator(this.locators.passwordField, this.locators.adminPassword);
     this.clickLoginButton();
-    return this;
+    return new HomePage;
   }
 
   clickLoginButton() {

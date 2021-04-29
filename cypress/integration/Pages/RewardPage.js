@@ -15,67 +15,8 @@ class RewardPage extends BasePage {
       date: 'td[role="gridcell"]',
       endDate: (day) => `td[title = "${day}"]`,
     };
+    
   }
-
-  //verify url
-  // verifyUrl() {
-  // for(var value in url) {
-  //     cy.visit(`${originUrl}${url[value]}`)
-  //     expect(cy.get(layoutContent)).should('be.visible').contains('403 Forbidden')
-  // }
-  //   return this
-
-  // }
-
-  // selectValidPeriod() {
-
-  // //    // cy.get(startDateField).clear({force: true})
-  // //     // cy.get(endDateField).title('eq', 'March 29, 2021').click()
-  // //     //cy.get(endDateField).contains('15').click()
-  // //     this.clickToNext()
-  //     //cy.get(startDateField).click().type(Cypress.moment().format('MMM DD, YYYY'))
-  //     // cy.get(startDateField).each(randomElement => {
-  //     //     cy.wrap(randomElement).click({force: true});
-  //     // });
-
-  //     // cy.get(endDateField).each(randomElement => {
-  //     //     cy.wrap(randomElement).click({force: true});
-  //     // });
-  //     //cy.get(startDateField).click().should('have.value', Cypress.moment().format('DD MM YYYY'))
-  //    cy.get(startDateField).click()
-  // //    const $el = await cy.find(calendarBody)
-  // //    if($el.length > 0) {
-  // //        cy.find("March 17, 2021").click()
-  // //    }
-  //     cy.get('body').then(($body) => {
-  //     if ($body.find(startDateField).length > 0) {
-  //         cy.contains('15').click()
-  //     }
-  //     })
-
-  //     cy.get(endDateField).click()
-  //     cy.get('body').then(($body) => {
-  //         if ($body.find(startDateField).length > 0) {
-  //             cy.contains('18').click()
-  //         }
-  //     })
-
-  //     this.clickToNext()
-
-  //
-  // }
-
-  // verifyMandatoryField() {
-  //     cy.get(rewardName).should(($div) => {
-  //         const text = $div.text()
-  //         expect(text).not.to.null
-  //     })
-
-  //     cy.get(validPeriod).should(($div) => {
-  //         const text = $div.text()
-  //         expect(text).not.to.null
-  //     })
-  // }
 
   // checkPrivateType() {
   //     cy.get(privateRadioBtn).should('not.be.checked').click()
