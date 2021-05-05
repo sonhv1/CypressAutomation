@@ -6,9 +6,9 @@ class BulkActionsPage extends BasePage {
         this.locators = {
             uploadButton: 'button[type="button"]',
             dropBox: '.ant-upload-drag-container',
-            fileCsv: 'valid_file_upload\\sample_issue_vouchers.csv',
-            fileXlsx: 'valid_file_upload\\sample_issue_vouchers.xlsx',
-            fileTxt: 'valid_file_upload\\sample_issue_vouchers.txt',
+            fileCsv: 'sample_issue_vouchers.csv',
+            fileXlsx: 'sample_issue_vouchers.xlsx',
+            fileTxt: 'sample_issue_vouchers.txt',
             firstActionName: 'tr[class="ant-table-row ant-table-row-level-0"]:nth-of-type(1) td:nth-of-type(1) div:nth-of-type(2)',
             popupUploadButton: '.ant-modal-footer > .ant-btn-primary'
 

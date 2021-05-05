@@ -2,9 +2,9 @@
 
 import LoginPage from "../Pages/LoginPage";
 
-Cypress.on("uncaught:exception", (err, runnable) => {
-  return false;
-});
+// Cypress.on("uncaught:exception", (err, runnable) => {
+//   return false;
+// });
 
 beforeEach(() => {
   cy.visit("https://www.perxtech.io/dashboard");

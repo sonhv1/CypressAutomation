@@ -1,8 +1,14 @@
 beforeEach(() => {
-  // cy.fixture("invalid_files_list").then((data) => {
-  //   this.data = data;
+  // cy.fixture("invalid_file_list").then((data) => {
+  //   this.file_name = data;
   // });
 });
+
+
+Cypress.on("uncaught:exception", (err, runnable) => {
+  return false;
+});
+
 
 class BasePage {
   clickElement(elementLocator) {
@@ -33,6 +39,8 @@ class BasePage {
 
   verifyElementVisibleByLocator(locator) {
     expect(cy.get(locator).should("be.visible"));
+
   }
 }
+
 export default BasePage;

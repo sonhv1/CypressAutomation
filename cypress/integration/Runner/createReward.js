@@ -2,9 +2,9 @@
 
 import LoginPage from "../Pages/LoginPage";
 
-Cypress.on("uncaught:exception", (err, runnable) => {
-  return false;
-});
+// Cypress.on("uncaught:exception", (err, runnable) => {
+//   return false;
+// });
 
 beforeEach(() => {
   cy.visit("https://www.perxtech.io/dashboard");
@@ -12,6 +12,7 @@ beforeEach(() => {
 
 describe("Creating a reward", () => {
   const loginPage = new LoginPage();
+  
 
   //--------------------------------------------------------------------------------------
 
@@ -75,14 +76,15 @@ describe("Creating a reward", () => {
   });
 
   it("If the reward is of private type: All fields related to catalogues,\
-      labels, brands, tags and categories should disappaer.", () => {
+      labels, brands, tags and categories should disappear.", () => {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
     rewardPage.clickCreateNewButton().inputRewardName("Reward 1");
     rewardPage.clickSelectEndDate();
-    rewardPage.chooseDate("April 29, 2021");
-    rewardPage.clickNextButton();
-    rewardPage.clickNextButton();
+    rewardPage.chooseDate("May 29, 2021");
     rewardPage.checkPrivateType();
+    rewardPage.clickNextButton();
+    rewardPage.clickNextButton();
+    
   });
 });
