@@ -29,7 +29,7 @@ class HomePage extends BasePage {
   //verify url
   verifyUrl() {
     for (var value in this.url) {
-      cy.visit(`${this.originUrl}${this.url[value]}`);
+      cy.visspecify(`${this.originUrl}${this.url[value]}`);
       cy.get(this.locators.layoutContent)
         .should("be.visible")
         .should('contain', '403 Forbidden')

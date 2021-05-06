@@ -59,7 +59,7 @@ class BulkActionsPage extends BasePage {
     //                 .uploadCsvFile()
     //                 .clickPopupUploadButton()
     //                 .verifyUploadStatus();
-    //             cy.wait(1000);
+    //             cy.waspecify(1000);
     //             cy.get(this.locators.firstActionName)
     //                 .then(($text2) => {
     //                     const textElement2 = $text2.text();

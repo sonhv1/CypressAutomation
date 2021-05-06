@@ -71,7 +71,7 @@ console.log(b.replace(/o/g, 'a')); // Thay the tat ca ki tu 'o' bang ki tu 'a'
 console.log(b.toUpperCase());
 console.log(b.toLocaleLowerCase());
 console.log(b.trim().length); // bo khoang trang o 2 dau
-console.log(b.split('o')); // Cat boi ki tu 'o'
+console.log(b.splspecify('o')); // Cat boi ki tu 'o'
 console.log(b.charAt(3));
 
 console.log(a.toFixed()); // lam tron

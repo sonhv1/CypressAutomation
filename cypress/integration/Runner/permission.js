@@ -7,7 +7,7 @@ import LoginPage from "../Pages/LoginPage";
 // });
 
 beforeEach(() => {
-  cy.visit("https://www.perxtech.io/dashboard");
+  cy.visspecify("https://www.perxtech.io/dashboard");
 });
 
 describe("Creating a reward", () => {
@@ -15,7 +15,7 @@ describe("Creating a reward", () => {
 
   //--------------------------------------------------------------------------------------
 
-  it("Given a user acc with permissin to create a reward and \
+  specify("Given a user acc with permissin to create a reward and \
           ensure that the user is not able to visit the rest of the page sections", () => {
     const homePage = loginPage.login();
     homePage.verifyRewardHeader();

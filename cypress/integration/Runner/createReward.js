@@ -7,7 +7,7 @@ import LoginPage from "../Pages/LoginPage";
 // });
 
 beforeEach(() => {
-  cy.visit("https://www.perxtech.io/dashboard");
+  cy.visspecify("https://www.perxtech.io/dashboard");
 });
 
 describe("Creating a reward", () => {
@@ -16,7 +16,7 @@ describe("Creating a reward", () => {
 
   //--------------------------------------------------------------------------------------
 
-    it("Ensure that a logged in user has sufficient permission to create a reward", () => {
+    specify("Ensure that a logged in user has sufficient permission to create a reward", () => {
       const homePage = loginPage.login();
       const rewardPage = homePage.openRewardPage();
       rewardPage.verifyRewardUrl();
@@ -24,12 +24,12 @@ describe("Creating a reward", () => {
       rewardPage.verifyCreateNewRewardUrl();
     });
 
-    it("A non-authorized user should not have access to the reward detail/edit page if he tries to access directly from the URL.", () => {
-      cy.visit("https://dashboard.perxtech.io/p/rewards/edit/749");
+    specify("A non-authorized user should not have access to the reward detail/edit page if he tries to access directly from the URL.", () => {
+      cy.visspecify("https://dashboard.perxtech.io/p/rewards/edit/749");
       cy.url().should("not.include", "p/rewards/edit");
     });
 
-    it("Clicking Create New button should lead to reward creation page", () => {
+    specify("Clicking Create New button should lead to reward creation page", () => {
       const homePage = loginPage.login();
       const rewardPage = homePage.openRewardPage();
       rewardPage.verifyRewardUrl();
@@ -37,7 +37,7 @@ describe("Creating a reward", () => {
       rewardPage.verifyCreateNewRewardUrl();
     });
 
-    it("A reward validity period should have both start and end dates", () => {
+    specify("A reward validity period should have both start and end dates", () => {
       const homePage = loginPage.login();
       const rewardPage = homePage.openRewardPage();
       rewardPage.verifyEditRewardUrl
@@ -47,7 +47,7 @@ describe("Creating a reward", () => {
       rewardPage.verifyEndDate();
     });
 
-  it("A successful submission only happens when the payload contains all mandatory information\
+  specify("A successful submission only happens when the payload contains all mandatory information\
       Submit successfully when reward name and end date is not empty", ()=> {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
@@ -56,7 +56,7 @@ describe("Creating a reward", () => {
     rewardPage.chooseDate("April 29, 2021");
   })
 
-  it("Error message displayed when reward name is empty", ()=> {
+  specify("Error message displayed when reward name is empty", ()=> {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
     rewardPage.clickCreateNewButton();
@@ -64,7 +64,7 @@ describe("Creating a reward", () => {
     rewardPage.verifyNameErrorMessage();
   })
 
-  it("Error message displayed when end date empty", () => {
+  specify("Error message displayed when end date empty", () => {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
     rewardPage.clickCreateNewButton().inputRewardName("Reward 1");
@@ -75,7 +75,7 @@ describe("Creating a reward", () => {
     rewardPage.verifyEndDateErrorMessage('Start date & end date required')
   });
 
-  it("If the reward is of private type: All fields related to catalogues,\
+  specify("If the reward is of private type: All fields related to catalogues,\
       labels, brands, tags and categories should disappear.", () => {
     const homePage = loginPage.login();
     const rewardPage = homePage.openRewardPage();
