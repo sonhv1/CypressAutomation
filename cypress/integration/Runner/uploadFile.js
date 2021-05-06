@@ -9,7 +9,7 @@
 // });
 
 // beforeEach(() => {
-//   cy.visspecify("https://www.perxtech.io/dashboard");
+//   cy.visit("https://www.perxtech.io/dashboard");
 // });
 
 // describe("Upload a file in bulk list", () => {
@@ -17,7 +17,7 @@
 //   //--------------------------------------------------------------------------------------
 
 //   specify("Ensure that the logged in user has sufficient permission \
-//         to visit the builk file upload page and has the ability to upload.", () => {
+//         to visit the bulk file upload page and has the ability to upload.", () => {
 //     const homePage = loginPage.loginAsAdmin();
 //     const bulkActionPage = homePage.openBulkActionMenu();
 //     bulkActionPage.clickUploadButton()

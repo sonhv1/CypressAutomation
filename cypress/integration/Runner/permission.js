@@ -7,7 +7,7 @@ import LoginPage from "../Pages/LoginPage";
 // });
 
 beforeEach(() => {
-  cy.visspecify("https://www.perxtech.io/dashboard");
+  cy.visit("https://www.perxtech.io/dashboard");
 });
 
 describe("Creating a reward", () => {
