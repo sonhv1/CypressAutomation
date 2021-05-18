@@ -1,4 +1,4 @@
-**cypress-auto-testing**
+# cypress-auto-testing
 Installation
 ## install all dependencies
 npm install
