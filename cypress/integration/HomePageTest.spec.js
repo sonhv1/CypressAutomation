@@ -34,13 +34,13 @@ context("Create account", () => {
       address: "zz",
       address2: "zz",
       city: "Ha Noi",
-      state: "Oregon",
+      state: "Alabama",
       zip: "11111",
       country: "United States",
       other_info: "weqw",
       home_phone: "123",
       mobile_phone: "123",
-      address_alias: "123",
+      address_alias: "123"
     };
 
     cy.create_valid_account(Account);
