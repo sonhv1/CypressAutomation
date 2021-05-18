@@ -1,18 +1,16 @@
 # cypress-auto-testing
-Installation
+
 ## install all dependencies
 npm install
-Opening Cypress GUI
-# open Cypress GUI
-npx cypress open
+
+## open Cypress GUI
+yarn test
 
 
-# Cypress tests headlessly
+## Cypress tests headlessly
 npx cypress run
 
-# for change tanent and sever specific
-
-# Generating allure report
+## Generating allure report
 
 // After running the test
 npm run generate-report-allure
