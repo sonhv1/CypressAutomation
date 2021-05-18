@@ -12,11 +12,11 @@ beforeEach(() => {
 });
 
 context("Create account", () => {
-    it("Ex1", () => {
-      //homePage.clickSignInBtn();
-      cy.clickSignInBtn();
-      cy.create_invalid_account("123", "Invalid email address.");
-    })
+  it("Ex1", () => {
+    //homePage.clickSignInBtn();
+    cy.clickSignInBtn();
+    cy.create_invalid_account("123", "Invalid email address.");
+  });
 
   it("Ex2", () => {
     cy.clickSignInBtn();
@@ -40,7 +40,7 @@ context("Create account", () => {
       other_info: "weqw",
       home_phone: "123",
       mobile_phone: "123",
-      address_alias: "123"
+      address_alias: "123",
     };
 
     cy.create_valid_account(Account);
