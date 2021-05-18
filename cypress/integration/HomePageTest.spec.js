@@ -12,11 +12,11 @@ beforeEach(() => {
 });
 
 context("Create account", () => {
-  //   it("Ex1", () => {
-  //     //homePage.clickSignInBtn();
-  //     cy.clickSignInBtn();
-  //     cy.create_invalid_account("123", "Invalid email address.");
-  //   })
+    it("Ex1", () => {
+      //homePage.clickSignInBtn();
+      cy.clickSignInBtn();
+      cy.create_invalid_account("123", "Invalid email address.");
+    })
 
   it("Ex2", () => {
     cy.clickSignInBtn();
