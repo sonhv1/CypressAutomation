@@ -89,13 +89,13 @@ function inputInfo(Account) {
   );
   cy.get(CreateAccountPage.page_items.other_info_field.selector)
     .type(Account.other_info)
-    .should("have.value", Account.other_info);
+    .should("have.text", Account.other_info);
   cy.get(CreateAccountPage.page_items.home_phone_field.selector)
     .type(Account.home_phone)
-    .should("have.value", Account.home_phone);
+    .should("have.text", Account.home_phone);
   cy.get(CreateAccountPage.page_items.mobile_phone_field.selector)
     .type(Account.mobile_phone)
-    .should("have.value", Account.mobile_phone);
+    .should("have.text", Account.mobile_phone);
   cy.get(CreateAccountPage.page_items.address_alias_field.selector).type(
     Account.address_alias
   );
