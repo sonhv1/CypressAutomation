@@ -69,7 +69,7 @@ function inputInfo(Account) {
   //   "have.value",
   //   Account.lastName
   // );
-
+  
   cy.get(CreateAccountPage.page_items.company_field.selector).type(
     Account.company
   );
@@ -80,9 +80,7 @@ function inputInfo(Account) {
     Account.address2
   );
   cy.get(CreateAccountPage.page_items.city_field.selector).type(Account.city);
-  cy.get(CreateAccountPage.page_items.state_dropdown_list.selector).select(
-    Account.state
-  );
+  cy.get(CreateAccountPage.page_items.state_dropdown_list.selector).select(Account.state);
   cy.get(CreateAccountPage.page_items.zip_field.selector).type(Account.zip);
   cy.get(CreateAccountPage.page_items.country_dropdown_list.selector).select(
     Account.country
